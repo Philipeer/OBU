@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="OBU:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/OBU_jar</output-path>
+    <root id="archive" name="OBU.jar">
+      <element id="module-output" name="OBU" />
+    </root>
+  </artifact>
+</component>
