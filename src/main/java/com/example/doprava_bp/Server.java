@@ -1,5 +1,6 @@
 package com.example.doprava_bp;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
@@ -31,6 +32,18 @@ public class Server {
         System.out.println("Nonce reciever: " + receiverCryptogram.getNonce());
 
         objectOutputStream.close();
+        socket.close();
+    }
+
+    public void sendAndReceiveObject(Cryptogram userCryptogram) throws IOException, ClassNotFoundException {
+        ServerSocket serverSocket = new ServerSocket(10002);
+        System.out.println("Server is up and running on ip " + serverSocket.getInetAddress().getLocalHost().getHostAddress() + " port: " + 10002);
+        Socket socket = serverSocket.accept();
+
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+        ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
+
+        userCryptogram = (Cryptogram) objectInputStream.readObject();
         socket.close();
     }
 
