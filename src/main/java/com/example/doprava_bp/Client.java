@@ -5,13 +5,13 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 public class Client {
-    //private ObuParameters obuParameters;
+    public ObuParameters obuParameters; //předělat na private
     /*public static void main(String[] args) throws Exception {
         new Client(); // obtain key and idr from IdP
 
     }*/
 
-    public Client(ObuParameters obuParameters) throws Exception{
+    public Client() throws Exception{
         Socket socket = new Socket("192.168.56.1", 10001);
 
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
